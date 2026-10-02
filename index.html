@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Artle DNA</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="studio-panel" aria-labelledby="game-title">
+        <div class="topbar">
+          <div>
+            <p class="kicker">Daily artwork</p>
+            <h1 id="game-title">Artle DNA</h1>
+          </div>
+          <div class="score-card" aria-live="polite">
+            <span id="attempt-count">0</span><small>/ 6</small>
+          </div>
+        </div>
+
+        <div class="art-stage">
+          <div class="frame">
+            <img id="artwork-image" alt="Mystery artwork detail">
+          </div>
+          <div class="reveal-meter" aria-label="Reveal progress">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <form id="guess-form" class="guess-form" autocomplete="off">
+          <label for="guess-input">Guess the artwork</label>
+          <div class="guess-row">
+            <input id="guess-input" list="artwork-options" placeholder="Start typing a title..." required>
+            <button type="submit">Guess</button>
+          </div>
+          <datalist id="artwork-options"></datalist>
+          <p id="message" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="board-panel" aria-label="Guess feedback">
+        <div class="board-header">
+          <span>Artwork</span>
+          <span>Artist</span>
+          <span>Century</span>
+          <span>Movement</span>
+          <span>Medium</span>
+          <span>Palette</span>
+        </div>
+        <div id="guess-board" class="guess-board"></div>
+      </section>
+    </main>
+
+    <template id="guess-template">
+      <article class="guess-card">
+        <h2></h2>
+        <div class="attribute-grid"></div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
